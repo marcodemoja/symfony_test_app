@@ -1,0 +1,29 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+#    service_name:
+#        class: AppBundle\Directory\ClassName
+#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+     app.token_listener:
+             class:     AppBundle\EventListener\TokenListener
+             arguments: [ %tokens% ]
+             tags:
+                 - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
+                 - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
+     app.form_listener:
+             class:  AppBundle\EventListener\FormsListener
+             tags:
+                 - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+                 - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
+             arguments:
+                 - @doctrine.orm.entity_manager
+     wordmatchcounter:
+             class: AppBundle\Utils\WordMatchesCounter
+
+     matches_repository:
+         class:     Doctrine\ORM\EntityRepository
+         factory:   ["@doctrine.orm.entity_manager", getRepository]
+         arguments: [AppBundle\Entity\Matches]

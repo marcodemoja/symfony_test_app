@@ -1,0 +1,31 @@
+AppBundle\Entity\Matches:
+    type: entity
+    table: matches
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        id1:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+        id2:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+        matchCount:
+            type: integer
+            nullable: true
+            unsigned: true
+            comment: ''
+            default: '0'
+            column: match_count
+    lifecycleCallbacks: {  }

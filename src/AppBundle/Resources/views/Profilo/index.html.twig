@@ -1,0 +1,45 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Profilo list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id1</th>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Descrizione</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('profilo_show', { 'id': entity.id1 }) }}">{{ entity.id1 }}</a></td>
+                <td>{{ entity.nome }}</td>
+                <td>{{ entity.cognome }}</td>
+                <td>{{ entity.descrizione }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('profilo_show', { 'id': entity.id1 }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('profilo_edit', { 'id': entity.id1 }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('profilo_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

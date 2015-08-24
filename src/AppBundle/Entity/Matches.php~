@@ -1,0 +1,46 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Matches
+ *
+ * @ORM\Table(name="matches")
+ * @ORM\Entity
+ */
+class Matches
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id1", type="integer", nullable=false)
+     */
+    private $id1;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id2", type="integer", nullable=false)
+     */
+    private $id2;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="match_count", type="integer", nullable=true)
+     */
+    private $matchCount;
+
+
+}

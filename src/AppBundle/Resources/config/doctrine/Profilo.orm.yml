@@ -1,0 +1,37 @@
+AppBundle\Entity\Profilo:
+    type: entity
+    table: profilo
+    uniqueConstraints:
+        nome_cognome:
+            columns:
+                - nome
+                - cognome
+    id:
+        id1:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nome:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+        cognome:
+            type: string
+            nullable: false
+            length: 100
+            fixed: false
+            comment: ''
+        descrizione:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+    lifecycleCallbacks: {  }

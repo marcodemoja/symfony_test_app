@@ -1,0 +1,41 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>ProfiloEsteso list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id2</th>
+                <th>Descrizioneestesa</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('profiloesteso_show', { 'id': entity.id2 }) }}">{{ entity.id2 }}</a></td>
+                <td>{{ entity.descrizioneEstesa }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('profiloesteso_show', { 'id': entity.id2 }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('profiloesteso_edit', { 'id': entity.id2 }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('profiloesteso_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

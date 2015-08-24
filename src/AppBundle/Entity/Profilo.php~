@@ -1,0 +1,46 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Profilo
+ *
+ * @ORM\Table(name="profilo", uniqueConstraints={@ORM\UniqueConstraint(name="nome_cognome", columns={"nome", "cognome"})})
+ * @ORM\Entity
+ */
+class Profilo
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id1", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id1;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nome", type="string", length=100, nullable=false)
+     */
+    private $nome;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cognome", type="string", length=100, nullable=false)
+     */
+    private $cognome;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descrizione", type="text", nullable=false)
+     */
+    private $descrizione;
+
+
+}

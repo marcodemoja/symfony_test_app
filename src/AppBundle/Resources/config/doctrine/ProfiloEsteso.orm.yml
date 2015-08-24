@@ -1,0 +1,21 @@
+AppBundle\Entity\ProfiloEsteso:
+    type: entity
+    table: profilo_esteso
+    id:
+        id2:
+            type: integer
+            nullable: false
+            unsigned: true
+            comment: ''
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        descrizioneEstesa:
+            type: text
+            nullable: false
+            length: null
+            fixed: false
+            comment: ''
+            column: descrizione_estesa
+    lifecycleCallbacks: {  }
