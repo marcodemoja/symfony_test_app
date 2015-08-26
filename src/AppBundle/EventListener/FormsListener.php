@@ -26,7 +26,7 @@ class FormsListener {
 
         if( $this->isDuplicateProfile($nome, $cognome)){
                 $message  = json_encode(array('message' => 'duplicate entry for '.$nome.' '.$cognome));
-                $response =  new Response($message,302);
+                $response =  new Response($message,409);
                 $response->headers->set('Content-Type','application/json');
 
                 return $event->setResponse($response);
